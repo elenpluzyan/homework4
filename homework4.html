@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<script>
+		//ex.1
+      	const trangleStars = function(char, count) {
+	   		let str = "";
+	   		while(count>0) {
+	   			str = str + char;
+	   			count = count - 1;
+    	    } 
+	    		return str;
+	   	};
+		 const row = function(space, star) {
+		 	console.log(trangleStars(" ", space) + trangleStars("*", star));
+	     };
+		 const printTriangle = function(h) {
+		 	let star = 2*h - 1;
+       	 	let s= 0;
+		 	while(h>0) {
+       			row (s, star)
+        		s= s+1
+		 		star = star - 2;
+		 		h = h - 1;
+		 	}
+
+		 };
+		 printTriangle(4);
+
+		 //ex.2
+		 const f2 = function(arr) {
+			let narr = [];
+   		    let arrIndex = 0;
+			while(arrIndex < arr.length) {
+		 		const smth = arr[arrIndex];
+      			arrIndex = arrIndex + 1;
+       			let index = 0;
+	    		 while(index < smth.length) {
+        			narr[narr.length] = smth[index];
+        			index = index + 1; 
+	     	     }
+			}
+       		  return narr;
+		};
+		console.log(f2([[62, 82, 22], [765, 628, 99]]));
+
+		//ex.3
+		const findMinMax = function(arr, boolean) {
+			let index = 0;
+			let result = arr[0];
+        	if(boolean) {
+				while(index < arr.length) {
+					if(arr[index] < arr[index + 1]) {
+						result = arr[index + 1];				
+					}
+					index = index + 1;
+				}
+			} else { 
+			while(index < arr.length) {
+				if(arr[index] > arr[index + 1]) {
+	  				result = arr[index];
+				}
+				index = index + 1;
+			   }
+
+			   }
+    		  return result
+		};
+
+		console.log(findMinMax([3,2,55,6,313,88,2], true));
+
+		//ex.4
+		const forEach = function(arr, func) {
+			let arrIndex = 0;
+			while(arrIndex < arr.length) {
+				func(arr[arrIndex]);
+				arrIndex++;
+			}
+		};
+		forEach([1, 3, 4], function(val) {
+			console.log(val);
+		});
+		//ex.5
+		const sum = function(arr) {
+			let index = 0;
+			let result = 0;
+			while(index<arr.length) {
+				result = result + arr[index];
+				index++;
+			}
+		return result;
+		};
+		console.log(sum([2, 23, 5]));
+  
+    	//ex.6
+		const reverse = function(string) {
+			let index = string.length-1;
+			let result = '';
+			while(index>=0) {
+				result = result + string[index];
+				index--;
+			}
+		return result;
+		};
+		console.log(reverse('abcde'));
+
+      	//ex.7
+		const print = function(size, symbol) {
+			let count = 0;
+			let result = '';
+				while(count<size) {
+					result = result + symbol;
+					count++;
+				}
+		return result;
+		};
+
+		const checkboard = function(size) {
+			let count = 1;
+			while(count<size) {
+				let result = '';
+				if(count%2===0) {
+					result = result + ' ';
+				} 
+				result = result + print(size, '*');
+				console.log(result);
+				count++;
+
+			}
+		
+		};
+		checkboard(5);
+
+</script>
+
+
